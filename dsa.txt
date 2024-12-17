@@ -1,1 +1,32 @@
+The Two Pointers technique is a common algorithmic method used to solve array and sequence problems efficiently. This approach utilizes two indices (pointers) that move within the array to meet specific conditions or constraints. The key idea is to iteratively adjust these pointers based on some condition until the desired result is achieved.
+
+
+@find two numbers that can be multiplied to get the result:
+k = sorted([4,3,5,2,1])
+i, j = 0,len(k)-1
+target = 8
+while i<j:
+    num = k[i]*k[j]
+    if num<target:
+        i+=1
+    elif num>target:
+        j-=1
+    else:
+        print(k[i],k[j])
+        break
+
+
+@@ to find the number of subarrays using 2 pointer
+k = [6 , 0,8, 2, 1, 5,3, 4]
+i,j = 0,0
+subarrays = []
+while i<len(k):
+    j=i
+    while j <len(k):
+        subarray = k[i:j]
+        if subarray:
+            subarrays.append(subarray)
+        j+=1
+    i+=1
+print(subarrays)
 

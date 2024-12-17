@@ -1,0 +1,33 @@
+Examples
+1. Basic Lambda
+# A lambda that doubles a number
+double = lambda x: x * 2
+print(double(5))  # Output: 10
+
+  
+2. Lambda with Multiple Arguments
+# A lambda that adds two numbers
+add = lambda x, y: x + y
+print(add(3, 7))  # Output: 10
+
+  
+3. Using Lambda with map()
+# Use lambda to square numbers in a list
+nums = [1, 2, 3, 4]
+squared = list(map(lambda x: x ** 2, nums))
+print(squared)  # Output: [1, 4, 9, 16]
+
+  
+4. Using Lambda with filter()
+# Use lambda to filter out even numbers
+nums = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)  # Output: [2, 4, 6]
+
+  
+5. Using Lambda with reduce()
+from functools import reduce
+# Use lambda to multiply all elements in a list
+nums = [2, 3, 4]
+product = reduce(lambda x, y: x * y, nums)
+print(product)  # Output: 24

@@ -30,3 +30,27 @@ while i<len(k):
     i+=1
 print(subarrays)
 
+
+@ find  Minimum Subarray with Product >= target
+from functools import reduce
+k = [6 , 10,8, 2, 1, 5,3, 4]
+target = 60
+i,j = 0,0
+final_arrays = []
+while i<len(k):
+    j = i+1
+    while j<=len(k):
+        subarray = k[i:j]
+        
+        product = reduce(lambda x,y:x*y,subarray)
+        if product == target:
+            final_arrays.append(subarray)
+        j+=1
+    i+=1
+if final_arrays:
+    print(min(final_arrays,key=len))
+else:
+    print('nill')
+
+        
+

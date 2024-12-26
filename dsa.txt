@@ -74,3 +74,33 @@ def maxArea(height):
         else:
             j-=1
     return globalarea
+
+
+
+
+@@  sum of two elements equals the third
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def findTriplet(arr,n):
+	# Write your code here
+	# Return a list containing either 3 or 0 elements.
+	ans = list()
+	arr.sort()
+	for i in range(n-1, -1, -1):
+		j, k = 0, i-1
+		while j<k:
+			if arr[i]==arr[j]+arr[k]:
+				ans.extend([arr[i],arr[j],arr[k]])
+				return ans
+			elif arr[i]>arr[j]+arr[k]:
+				j+=1
+			else:
+				k-=1
+	return ans
+
+
+

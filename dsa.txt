@@ -54,3 +54,23 @@ else:
 
         
 
+
+
+
+@@ container with most water
+
+def maxArea(height):
+    
+    # Write your code here.
+    n = len(height)
+    i = 0
+    j = n-1
+    globalarea = -1
+    while i<j:
+        minheight = min(height[i], height[j])
+        globalarea = max(globalarea, (j-i)*minheight)
+        if height[i]<=minheight:
+            i+=1
+        else:
+            j-=1
+    return globalarea

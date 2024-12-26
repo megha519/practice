@@ -102,5 +102,26 @@ def findTriplet(arr,n):
 				k-=1
 	return ans
 
+@@@ valid string
 
-
+def checkValidString(s):
+    left_balance = 0
+    for char in s:
+        if char == '(' or char == '*':
+            left_balance += 1
+        else:
+            left_balance -= 1
+        if left_balance < 0:
+            return False  # If balance goes negative, we have unmatched ')'
+    
+    # Second pass to check for unmatched ')'
+    right_balance = 0
+    for char in reversed(s):
+        if char == ')' or char == '*':
+            right_balance += 1
+        else:
+            right_balance -= 1
+        if right_balance < 0:
+            return False  # If balance goes negative, we have unmatched '('
+    
+    return True 

@@ -1,0 +1,14 @@
+def debug(func):
+    def wrapper(*arg, **kwargs):
+        print(func.__name__)
+        new_arg = [i for i in arg if str(i).isalpha()]
+        return func(*new_arg, **kwargs)
+    return wrapper
+@debug
+def func(*new_arg, **kwargs):
+    l = [i for i in new_arg]
+    d = {i:j for i, j in kwargs.items()}
+    print(l)
+    print(d)
+func(1, 2, 'a', 'b', 'c', name="meghs", color="blue")      
+    

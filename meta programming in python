@@ -11,4 +11,39 @@ def func(*new_arg, **kwargs):
     print(l)
     print(d)
 func(1, 2, 'a', 'b', 'c', name="meghs", color="blue")      
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+def practice(func):
+    def wrapper(*args):
+        new_args = []
+        k = ['a', 'e', 'i', 'o', 'u']
+        string = ''
+        list_arg = list(args)
+        while list_arg:
+            a = list_arg.pop()
+            if a not in k:
+                string+=a
+            else:
+                string+=a
+                new_args.append(string)
+                string = ''
+        return func(new_args)
+    return wrapper
+            
+@practice
+def func(new_args):
+    for i in new_args:
+        if len(i)>4:
+            print(i)
+func('z','z','a','y','y', 'y', 'y', 'o', 'p', 'p', 'p', 'p', 'u')

@@ -102,3 +102,32 @@ output:
 7
 9
 
+
+
+
+
+
+
+
+import heapq
+matrix = [[1,2,3], [3,2,1],[6,7,8]]
+row = len(matrix)
+col = len(matrix[0])
+blank = [[float('inf')]*col for _ in range(row)]
+blank[0][0] = matrix[0][0]
+directions = [(0,1), (1,0)]
+min_heap = [(matrix[0][0], 0, 0)]
+while min_heap:
+    cost, r, c = heapq.heappop(min_heap)
+    if r == row-1 and c == col-1:
+        print(cost)
+    else:
+        for dr,dc in directions:
+            new_r, new_c = r+dr, c+dc
+            if 0<=new_r<row and 0<=new_c<col:
+                new_cost = cost+matrix[new_r][new_c]
+                if new_cost<blank[new_r][new_c]:
+                    blank[new_r][new_c] = new_cost
+                    heapq.heappush(min_heap, (new_cost, new_r, new_c))
+                    
+        

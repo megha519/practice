@@ -80,3 +80,25 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+from queue import PriorityQueue
+k = [5,3,7,1,9]
+pq = PriorityQueue()
+[pq.put(i) for i in k]
+print(pq.get())
+print(pq.get())
+print(pq.get())
+print(pq.get())
+print(pq.get())
+
+output:
+1
+3
+5
+7
+9
+

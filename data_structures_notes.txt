@@ -131,3 +131,91 @@ while min_heap:
                     heapq.heappush(min_heap, (new_cost, new_r, new_c))
                     
         
+
+
+
+
+
+
+
+
+............................................
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from sys import stdin, stdout, setrecursionlimit
+
+
+
+
+def findTriplets(k, n):
+    # Write your code here
+    # Return a list of triplets
+    result = []
+    arr = sorted(k)
+    for i in range(n-2):
+        if i>0 and arr[i]==arr[i-1]:
+            continue
+        else:
+            left = i+1
+            right = n-1
+            while left<right:
+                sumk = arr[i]+arr[left]+arr[right]
+                if sumk==0:
+                    result.append([arr[i], arr[left], arr[right]])
+                    while left<right and arr[left]==arr[left+1]:
+                        left+=1
+                    while left<right and arr[right]==arr[right-1]:
+                        right-=1
+                    left +=1
+                    right-=1
+                elif sumk<0:
+                    left+=1
+                else:
+                    right-=1
+    return result
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Taking input using fast I/0
+def takeInput():
+    N = int(stdin.readline())
+    arr = list(map(int, stdin.readline().strip().split(" ")))
+    return N, arr
+
+
+tc = int(input())
+while tc > 0:
+    N, arr = takeInput()
+    ans = findTriplets(arr, N)
+    if len(ans) == 0:
+        stdout.write("-1\n")
+    else:
+        for i in ans:
+            i.sort()
+            stdout.write(str(i[0]) + " " + str(i[1]) + " " + str(i[2]) + "\n")
+
+    tc -= 1

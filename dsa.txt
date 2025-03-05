@@ -145,3 +145,32 @@ def isSubSequence(str1, str2):
 
     # If all characters of str1 are found in str2 in order
     return i == len(str1)
+
+
+
+
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        compare = set(s)
+        i, j = 0, 0
+        result = set()
+        while i<len(s):
+            j=i
+            while j<len(s)+1:
+                k = s[i:j]
+                if len(set(k))==len(k):
+                    result.add(k)
+                j+=1
+            i+=1
+        max_len = len(max(result, key=len)) if result else 0
+        final_list = [i for i in result if len(i)==max_len]
+        sorted_list = sorted(final_list, key=lambda word:s.index(word))
+        return len(sorted_list[0]) if sorted_list else 0
+        
+
+
+
+
+        
